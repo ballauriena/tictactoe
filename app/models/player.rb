@@ -1,5 +1,7 @@
 class Player < ActiveRecord::Base
 
+	has_secure_password
+
 	has_many :games_created, class_name: "Game", foreign_key: "challenger_id"
 
 	has_many :games_accepted, class_name: "Game", foreign_key: "challengee_id"
