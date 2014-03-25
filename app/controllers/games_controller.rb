@@ -1,0 +1,2 @@
+def GamesController < ApplicationController
+end
