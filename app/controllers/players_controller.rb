@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
 		@player = Player.new(player_params)
 		if @player.save
 			session[:current_player_id] = @player.id
-			redirect_to player_path(@player)
+			render 'sessions/new'
 		else 
 			flash.now[:alert] = "Password and password confirmation must be the same."
 			render 'players/new'

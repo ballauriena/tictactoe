@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 		player = Player.find_by_username(params[:username])
 		if player && player.authenticate(params[:password])
 			session[:current_player_id] = player.id
-			redirect to player_path(player)
+			redirect_to root_url
 		else
 			flash.now[:alert] = "Invalid email or password."
 			render 'sessions/new'
