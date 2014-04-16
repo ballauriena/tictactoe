@@ -7,6 +7,8 @@ Tictactoe::Application.routes.draw do
   get "signup", to: "players#new"
 
   resources :players, except: [:new, :destroy, :index]
+
+  resources :games, only: [:create, :show]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
