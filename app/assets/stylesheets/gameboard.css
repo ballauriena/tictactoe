@@ -1,7 +1,7 @@
 .gameboard{
 	width: 660px;
 	height: 660px;
-	background-color: pink;
+	background-color: lightpink;
 	position: absolute;
 	padding: 20px;
 }
