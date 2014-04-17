@@ -8,9 +8,11 @@ Tictactoe::Application.routes.draw do
 
   resources :players, except: [:new, :destroy, :index]
 
-  resources :games, only: [:create, :show, :update]
+  resources :games, except: [:update, :edit] do
+    resources :moves, only: [:create]
+  end 
 
-  post "move", to: "moves#create"
+  #resources :moves, only: [:create]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
