@@ -2,15 +2,13 @@ $(document).ready(function(){
 
   $('.box').on('click', function(){
   	var boxId = this.id;
-  	var gameUrl = String(window.location.pathname);
-  	console.log(gameUrl);
-//ajax method should post to moves create to create a new move when you click on the board, then change the color of the box
+  	var gameNum = String(window.location.pathname).replace(/\/.+\//, "");
+
   	$.ajax({
-  		type: "GET",
-  		url: gameUrl,
-  		data: {move: boxId},
-  		success: function(){
-  		  alert(boxId);
+  		type: "POST",
+  		url: "/games/:game_id/moves",
+  		data: {number: gameNum, move: boxId},
+  		success: function(d){
   		  $("#"+boxId).css("background-color", "lightblue");
   		}
   	});
